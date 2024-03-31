@@ -8,7 +8,7 @@
     </thead>
     {% set loop_count = 1 %}
     <tbody>
-        {% for team,score in result %}
+        {% for team,score in result.items() %}
         <tr>
             <td>{{ loop_count }}</td>
             <td>{{ team }}</td>
