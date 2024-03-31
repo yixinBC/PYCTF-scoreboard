@@ -56,14 +56,14 @@ async def get_teams_and_chals() -> tuple[list[str], dict[str, list[str]]]:
     return teams, chals
 
 
-async def get_id_with_name() -> dict[str, str]:
+async def get_id_with_name() -> dict[int, str]:
     """
     获取当前Game下的队伍id和队伍名的对应关系
     """
     async with AsyncClient() as client:
         # 队伍id和队伍名的对应关系
         return {
-            i["name"]: i["id"]
+            i["id"]: i["name"]
             for i in (
                 await client.get(f"{PLATFORM_URL}/api/game/{GAME_ID}/scoreboard")
             ).json()["items"]
