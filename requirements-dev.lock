@@ -7,6 +7,7 @@
 #   all-features: false
 #   with-sources: false
 
+aiocache==0.12.2
 annotated-types==0.6.0
     # via pydantic
 anyio==4.3.0

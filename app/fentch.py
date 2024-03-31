@@ -4,12 +4,15 @@ fentch data from platform
 
 from fractions import Fraction
 from httpx import AsyncClient
+from aiocache import cached, Cache
+from aiocache.serializers import PickleSerializer
 
 PLATFORM_URL: str = ""  # 平台URL，结尾不要有/
 GAME_ID: int = 0  # 比赛ID
 TOKEN: str = ""  # Token
 
 
+@cached(ttl=10, cache=Cache.MEMORY, serializer=PickleSerializer())
 async def get_teams_and_chals() -> tuple[list[str], dict[str, list[str]]]:
     """
     teams:  队伍id的list
@@ -56,6 +59,7 @@ async def get_teams_and_chals() -> tuple[list[str], dict[str, list[str]]]:
     return teams, chals
 
 
+@cached(ttl=10, cache=Cache.MEMORY, serializer=PickleSerializer())
 async def get_id_with_name() -> dict[int, str]:
     """
     获取当前Game下的队伍id和队伍名的对应关系
