@@ -6,14 +6,12 @@
             <th>分数</th>
         </tr>
     </thead>
-    {% set loop_count = 1 %}
     <tbody>
         {% for team,score in result.items() %}
         <tr>
-            <td>{{ loop_count }}</td>
+            <td>{{ loop.index }}</td>
             <td>{{ team }}</td>
             <td>{{ score }}</td>
-            {% set loop_count = loop_count + 1 %}
         </tr>
         {% endfor %}
     </tbody>
