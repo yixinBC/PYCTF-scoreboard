@@ -7,7 +7,7 @@ from fastapi import FastAPI, Request
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
-from .fentch import get_teams_and_chals, fraction_score, get_id_with_name
+from .fetch import get_teams_and_chals, fraction_score, get_id_with_name
 
 app = FastAPI()
 

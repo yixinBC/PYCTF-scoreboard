@@ -1,5 +1,5 @@
 """
-fentch data from platform
+fetch data from platform
 """
 
 from fractions import Fraction
