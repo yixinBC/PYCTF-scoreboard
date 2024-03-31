@@ -31,7 +31,6 @@ async def read_item(request: Request):
             result1.update({id_name_table[int(k)]: v})
         except KeyError:
             continue
-    print(result1)
     return templates.TemplateResponse(
         request=request, name="scoreboard.html", context={"result": result1}
     )
